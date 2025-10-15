@@ -1,36 +1,66 @@
+
 import torch
+import numpy
 
-import numpy as np
 
-# 创建两个矩阵
-A = np.array([[1, 2, 3],
+A = numpy.array([[1, 2, 3],
               [4, 5, 6]])
 
-B = np.array([[7, 8],
+B = numpy.array([[7, 8],
               [9, 10],
               [11, 12]])
 
+
+print("\n## 1（二维数组）标准矩阵乘法/点积:")
 print("矩阵 A:")
 print(A)
-print("\n矩阵 B:")
+print("矩阵 B:")
 print(B)
 
-# 矩阵乘法
-print("\n矩阵乘法结果 np.dot(A,B):")
-print(np.dot(A, B))
-
-
-# 或者使用 @ 运算符（Python 3.5+）
-print("\n矩阵乘法结果 (@ 运算符):")
+print("\nA @ B :")
 print(A @ B)
 
+print("\n也可以用 numpy.dot(A,B) :")
+print(numpy.dot(A, B))
 
 
 
-a = 2
-X = torch.arange(24).reshape(2, 3, 4)
-print(X)
-print(a + X)
-print((a * X).shape)
+print("\n\n## 2（二维张量）标准矩阵乘法/点积:")
+A = torch.tensor([[1, 2, 3],
+              [4, 5, 6]])
 
-print(a + A)
+B = torch.tensor([[7, 8],
+              [9, 10],
+              [11, 12]])
+
+print("二维张量 A:")
+print(A)
+print("二维张量 B:")
+print(B)
+
+print("\nA @ B :")
+print(A @ B)
+
+print("\n也可以用 torch.mm(A,B) :")
+print(torch.mm(A, B))
+
+
+
+print("\n\n## 3（一维张量）点积:")
+A = torch.tensor([1, 2, 3])
+
+B = torch.tensor([7, 8, 1])
+
+print("一维张量 A:")
+print(A)
+print("一维张量 B:")
+print(B)
+
+
+print("\nA @ B :")
+print(A @ B)
+
+print("\n也可以用 torch.dot(A,B) :")
+print(torch.dot(A, B))
+
+
